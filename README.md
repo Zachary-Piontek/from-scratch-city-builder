@@ -2,6 +2,8 @@
 
 🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
 
+![wireframe](./assets/Wireframe-City-Builder.png)
+
 1. Limit Work in Progress (WIP)
 1. Validate each line of code before moving forward
 1. Keep it Simple Simon (KISS)
