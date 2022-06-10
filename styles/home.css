@@ -25,3 +25,35 @@ main {
 #section-middle {
     padding-top: 50px;
 }
+
+.dry {
+    background: yellow;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+.tropical {
+    background: orange;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+.cool {
+    background: blue;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+.mountains {
+    background: green;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
