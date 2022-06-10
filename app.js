@@ -6,7 +6,8 @@ function getDefaultCity() {
     const defaultCity = {
         name: '',
         environment: 'modern',
-        architecture: 'middle-eastern'
+        architecture: 'middle-eastern',
+        slogan: ''
     };
     return defaultCity;
 }
@@ -27,6 +28,10 @@ const architectureSelect = document.getElementById('architecture-select');
 const architectureImage = document.getElementById('architecture-image');
 let architectureCounter = 0;
 
+const cities = [];
+const addButton = sectionCityInfo.querySelector('button');
+
+
 // components
     // component
     // define and grab DOM elements
@@ -42,6 +47,14 @@ function displayCity() {
     header.textContent = cityBuild.name;
     sectionCityDesign.classList.add(cityBuild.environment);
 }
+addButton.addEventListener('click', () => {
+    cities.push(cityBuild);
+    displayCities();
+    cityBuild = getDefaultCity();
+    displayCityInfo();
+    displayCity();
+});
+
 
     // optional: subscribe to events
         // event handlers - what needs to happen?
@@ -59,6 +72,7 @@ environmentSelect.addEventListener('change', () => {
 selectEnvironment.addEventListener('change', (e) => {
     const value = e.target.value;
     environmentImage.src = `./assets/enron-${value}.jpeg`;
+    // ${} is template literal
     environmentCounter;
 });
 
@@ -68,10 +82,32 @@ architectureSelect.addEventListener('change', (e) => {
     architectureCounter;
 });
 
-console.log('h2');
-console.log(header);
-console.log(cityNameInput.value);
-console.log(sectionCityInfo);
+const charactersSection = document.getElementById('characters-section');
+const list = charactersSection.querySelector('ul');
+
+function displayCities() {
+    
+    list.innerHTML = '';
+
+    for (const cityBuild of cities) {
+        
+        const li = document.createElement('li');
+       
+        const nameDisplay = document.createElement('span');
+        nameDisplay.textContent = cityBuild.name;
+        const descriptionDisplay = document.createElement('span');
+        descriptionDisplay.textContent = cityBuild.slogan;
+        const environmentDisplay = document.createElement('span');
+        environmentDisplay.src = environmentDisplay;
+        const architectureDisplay = document.createElement('span');
+        architectureDisplay.src = 'architecture-image';
+        
+        li.append(nameDisplay, descriptionDisplay, environmentDisplay, architectureDisplay);
+        list.append(li);
+    }
+}
+
+
 
         // logic and calculations
         // state update
@@ -81,5 +117,6 @@ console.log(sectionCityInfo);
 // page load actions
 displayCity();
 displayCityInfo();
+displayCities();
 
 
