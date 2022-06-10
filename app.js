@@ -7,7 +7,7 @@ function getDefaultCity() {
         name: '',
         environment: 'modern',
         architecture: 'middle-eastern',
-        slogan: ''
+        slogan: '',
     };
     return defaultCity;
 }
@@ -30,6 +30,8 @@ let architectureCounter = 0;
 
 const cities = [];
 const addButton = sectionCityInfo.querySelector('button');
+
+// const sloganName = sectionCityInfo.querySelector('input');  
 
 
 // components
@@ -69,6 +71,7 @@ environmentSelect.addEventListener('change', () => {
     displayCity();
 });
 
+
 selectEnvironment.addEventListener('change', (e) => {
     const value = e.target.value;
     environmentImage.src = `./assets/enron-${value}.jpeg`;
@@ -82,8 +85,8 @@ architectureSelect.addEventListener('change', (e) => {
     architectureCounter;
 });
 
-const charactersSection = document.getElementById('characters-section');
-const list = charactersSection.querySelector('ul');
+const citySection = document.getElementById('city-section');
+const list = citySection.querySelector('ul');
 
 function displayCities() {
     
@@ -98,9 +101,9 @@ function displayCities() {
         const descriptionDisplay = document.createElement('span');
         descriptionDisplay.textContent = cityBuild.slogan;
         const environmentDisplay = document.createElement('span');
-        environmentDisplay.src = environmentDisplay;
+        environmentDisplay.src = cityBuild.environment;
         const architectureDisplay = document.createElement('span');
-        architectureDisplay.src = 'architecture-image';
+        architectureDisplay.src = cityBuild.architecture;
         
         li.append(nameDisplay, descriptionDisplay, environmentDisplay, architectureDisplay);
         list.append(li);
