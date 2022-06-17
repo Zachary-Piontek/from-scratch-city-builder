@@ -19,6 +19,7 @@ const sectionCityDesign = document.getElementById('section-city-design');
 const header = sectionCityDesign.querySelector('h2');
 
 const environmentSelect = sectionCityInfo.querySelector('select');
+const sloganInput = document.getElementById('slogan');
 
 const selectEnvironment = document.getElementById('select-environment');
 const environmentImage = document.getElementById('environment-image');
@@ -27,6 +28,9 @@ let environmentCounter = 0;
 const architectureSelect = document.getElementById('architecture-select');
 const architectureImage = document.getElementById('architecture-image');
 let architectureCounter = 0;
+
+let selectedEnvironment = '';
+let selectedArchitecture = '';
 
 const cities = [];
 const addButton = sectionCityInfo.querySelector('button');
@@ -48,6 +52,8 @@ function displayCity() {
     sectionCityDesign.classList.value = '';
     header.textContent = cityBuild.name;
     sectionCityDesign.classList.add(cityBuild.environment);
+    Image.src = '../assets/' + 'jpeg';
+
 }
 addButton.addEventListener('click', () => {
     cities.push(cityBuild);
@@ -66,30 +72,36 @@ cityNameInput.addEventListener('input', () => {
     displayCity();
 });
 
-environmentSelect.addEventListener('change', () => {
+environmentSelect.addEventListener('input', () => {
     cityBuild.environment = environmentSelect.value;
     displayCity();
 });
 
+sloganInput.addEventListener('change', (e) => {
+    cityBuild.slogan = e.target.value;
+});
 
 selectEnvironment.addEventListener('change', (e) => {
     const value = e.target.value;
-    environmentImage.src = `./assets/enron-${value}.jpeg`;
+    selectedEnvironment = `./assets/enron-${value}.jpeg`;
+    environmentImage.src = selectedEnvironment;
     // ${} is template literal
     environmentCounter;
 });
 
 architectureSelect.addEventListener('change', (e) => {
     const value = e.target.value;
-    architectureImage.src = `./assets/arch-${value}.jpeg`;
+    selectedArchitecture = `./assets/arch-${value}.jpeg`;
+    architectureImage.src = selectedArchitecture;
     architectureCounter;
 });
 
 const citySection = document.getElementById('city-section');
+
 const list = citySection.querySelector('ul');
 
 function displayCities() {
-    
+    //console.log(cityBuild);
     list.innerHTML = '';
 
     for (const cityBuild of cities) {
@@ -100,10 +112,11 @@ function displayCities() {
         nameDisplay.textContent = cityBuild.name;
         const descriptionDisplay = document.createElement('span');
         descriptionDisplay.textContent = cityBuild.slogan;
-        const environmentDisplay = document.createElement('span');
-        environmentDisplay.src = cityBuild.environment;
-        const architectureDisplay = document.createElement('span');
-        architectureDisplay.src = cityBuild.architecture;
+        const environmentDisplay = document.createElement('img');
+        //console.log(cityBuild);
+        environmentDisplay.src = selectedEnvironment;
+        const architectureDisplay = document.createElement('img');
+        architectureDisplay.src = selectedArchitecture;
         
         li.append(nameDisplay, descriptionDisplay, environmentDisplay, architectureDisplay);
         list.append(li);
