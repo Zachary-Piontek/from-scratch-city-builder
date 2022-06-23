@@ -19,7 +19,52 @@
     </header>
 
     <main>
+        <h1>City Builder</h1>
+        <section id="city-info">
+            <div id="div-environment"> 
+                <h3>Environment</h3>              
+                    <select id="select-environment">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">Cool</option>
+                        <option value="2">Dry</option>
+                        <option value="3">Mountains</option>
+                        <option value="4">Tropical</option>
+                    </select>
+                <img id="environment-image" src="/assets/enron-1.jpeg" height="200" width="250">
+            </div>
+            <div id="div-city-name">
+                <h3>City Name</h3>
+                <input id="input-city-name">
+            </div>
+            <div id="div-architecture">  
+                <h3>Architecture</h3>             
+                    <select id="architecture-select">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>               
+                <img id="architecture-image" src="/assets/arch-1.jpeg" height="200" width="250">
+            </div>
+            <div id="div-city-list">
+                <h3>Slogan for City</h3>
+                <input id="slogan" type="text">
+                <button>Add</button>
+                <p></p>
+            </div>
+        </section>
 
+        <section id="section-city-design">         
+            <h2></h2>
+            <img id="environment-image" src="./assets/enron-1.jpeg" height="100" width="100">
+            <img id="architecture-image" src="./assets/arch-1.jpeg" height="100" width="100">        
+            <h3></h3>
+        </section>
+
+        <section id="city-section">
+            <h3>Cities Built</h3>
+            <ul class="city-list"></ul>
+        </section>
     </main>
 
     <footer>&copy;2021 Aspiring Software Developer</footer>

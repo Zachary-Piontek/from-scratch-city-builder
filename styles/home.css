@@ -1,1 +1,79 @@
 /* add css for index.html */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div {
+    padding: 10px;
+}
+
+#city-info {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+#section-city-design {
+    border: 1px solid black;
+    margin-top: 25px;
+}
+
+#section-bottom {
+    padding-top: 100px;
+}
+
+#section-middle {
+    padding-top: 50px;
+}
+
+.dry {
+    background: yellow;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+.tropical {
+    background: orange;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+.cool {
+    background: blue;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+.mountains {
+    background: green;
+    color: black;
+    border: 3px solid red;
+    font-family: 'Monospace';
+    font-size: 2em;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 3px;
+}
+
+img {
+    width: 200px;
+    height: auto;
+}
