@@ -17,6 +17,7 @@ const cityNameInput = sectionCityInfo.querySelector('input');
 
 const sectionCityDesign = document.getElementById('section-city-design');
 const header = sectionCityDesign.querySelector('h2');
+const footer = sectionCityDesign.querySelector('h3');
 
 const environmentSelect = sectionCityInfo.querySelector('select');
 const sloganInput = document.getElementById('slogan');
@@ -51,12 +52,14 @@ function displayCityInfo() {
 function displayCity() {
     sectionCityDesign.classList.value = '';
     header.textContent = cityBuild.name;
+    footer.textContent = cityBuild.slogan;
     sectionCityDesign.classList.add(cityBuild.environment);
-    Image.src = '../assets/' + 'jpeg';
+    // Image.src = '../assets/' + 'jpeg';
 
 }
 addButton.addEventListener('click', () => {
     cities.push(cityBuild);
+    console.log(cities);
     displayCities();
     cityBuild = getDefaultCity();
     displayCityInfo();
@@ -94,6 +97,7 @@ architectureSelect.addEventListener('change', (e) => {
     selectedArchitecture = `./assets/arch-${value}.jpeg`;
     architectureImage.src = selectedArchitecture;
     architectureCounter;
+    cityBuild.architecture = architectureSelect.value;
 });
 
 const citySection = document.getElementById('city-section');
@@ -104,19 +108,19 @@ function displayCities() {
     //console.log(cityBuild);
     list.innerHTML = '';
 
-    for (const cityBuild of cities) {
+    for (const city of cities) {
         
         const li = document.createElement('li');
        
         const nameDisplay = document.createElement('span');
-        nameDisplay.textContent = cityBuild.name;
+        nameDisplay.textContent = city.name;
         const descriptionDisplay = document.createElement('span');
-        descriptionDisplay.textContent = cityBuild.slogan;
+        descriptionDisplay.textContent = city.slogan;
         const environmentDisplay = document.createElement('img');
         //console.log(cityBuild);
-        environmentDisplay.src = selectedEnvironment;
+        environmentDisplay.src = `./assets/enron-${city.environment}.jpeg`;
         const architectureDisplay = document.createElement('img');
-        architectureDisplay.src = selectedArchitecture;
+        architectureDisplay.src = `./assets/arch-${city.architecture}.jpeg`;
         
         li.append(nameDisplay, descriptionDisplay, environmentDisplay, architectureDisplay);
         list.append(li);
@@ -134,5 +138,3 @@ function displayCities() {
 displayCity();
 displayCityInfo();
 displayCities();
-
-
